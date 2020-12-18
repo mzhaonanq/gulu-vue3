@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import Home from './components/Home.vue'
-import Doc from './components/Doc.vue'
+import Home from './Home.vue'
+import Doc from './Doc.vue'
 
 export default {
   name: 'App',
