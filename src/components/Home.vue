@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="topnav">
-      <div class="log"></div>
+      <div class="logo">LOGO</div>
       <ul class="menu">
         <li>菜单1</li>
         <li>菜单2</li>
@@ -17,3 +17,23 @@
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.topnav{
+  background:pink;
+  display: flex;
+  padding: 16px;
+  > .logo{
+    margin-right: auto;
+    max-width: 6em;
+  }
+  > .menu{
+    display: flex;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    > li{
+      margin: 0 1em;
+    }
+  }
+}
+</style>
