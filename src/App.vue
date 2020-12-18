@@ -1,6 +1,9 @@
 <template>
-  <HelloWorld msg="hi" />
-  <Bruce/>
+  <span>导航栏：</span>
+  <router-link to="/">首页</router-link>
+  <span> | </span>
+  <router-link to="/hello">下一页</router-link>
+<router-view/>
 </template>
 
 <script>
