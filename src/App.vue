@@ -14,7 +14,9 @@ export default {
     Doc
   },
   setup(){
-    const asideVisible = ref(false)
+    const screenWidth = document.documentElement.clientWidth
+    // ref(screenWidth>= 500?true:false） 简化成如下
+    const asideVisible = ref(screenWidth > 500)
     provide("asideVisible",asideVisible)
   }
 }
