@@ -1,8 +1,4 @@
 <template>
-  <span>导航栏：</span>
-  <router-link to="/">首页</router-link>
-  <span> | </span>
-  <router-link to="/doc">文档</router-link>
 <router-view/>
 </template>
 
