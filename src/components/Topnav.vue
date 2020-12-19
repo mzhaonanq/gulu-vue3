@@ -30,7 +30,10 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 16px;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left:0;
   z-index: 10;
   > .logo {
     margin-right: auto;
