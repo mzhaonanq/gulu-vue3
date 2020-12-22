@@ -3,14 +3,16 @@
 </template>
 
 <script lang="ts">
-import {ref} from 'vue';
+
 export default {
-setup(){
-  const checkedShow = ref(false)
+  props:{
+    checkedShow:Boolean
+  },
+setup(props,context){
   const toggle =()=>{
-    checkedShow.value = !checkedShow.value
+    context.emit("input",!props.checkedShow)
   }
-  return {checkedShow,toggle}
+  return {toggle}
 }
 }
 </script>
