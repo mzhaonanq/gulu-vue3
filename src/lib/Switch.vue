@@ -10,7 +10,7 @@ export default {
   },
 setup(props,context){
   const toggle =()=>{
-    context.emit("input",!props.checkedShow)
+    context.emit("update:checkedShow",!props.checkedShow)
   }
   return {toggle}
 }
