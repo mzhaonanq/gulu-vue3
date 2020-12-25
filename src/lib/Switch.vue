@@ -1,5 +1,5 @@
 <template>
-  <button :class={checked:checkedShow} @click="toggle"><span></span></button>
+  <button class="gulu-switch" :class={"gulu-checked":checkedShow} @click="toggle"><span></span></button>
 </template>
 
 <script lang="ts">
@@ -17,10 +17,10 @@ setup(props,context){
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h:22px;
 $h2: $h - 4px;
-button{
+.gulu-switch{
   height: $h;
   width: $h*2;
   border: none;
@@ -30,7 +30,7 @@ button{
   &:active{
     > span {width: $h2 + 4px;}
   }
-  &.checked{
+  &.gulu-checked{
     background: #1890ff;
     &:active{
       >span{
