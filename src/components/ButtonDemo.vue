@@ -1,9 +1,11 @@
 <template>
   <div>Button组件</div>
-  <Button>我是按钮</Button>
-  <Button>我是按钮</Button>
-  <Button>我是按钮</Button>
-  <Button>我是按钮</Button>
+  <Button theme="button">我是按钮</Button>
+  <Button theme="link">我是按钮</Button>
+  <Button theme="text">我是按钮</Button>
+  <Button >我是按钮</Button>
+
+
 
 </template>
 
