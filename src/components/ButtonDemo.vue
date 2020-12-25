@@ -1,9 +1,19 @@
 <template>
   <div>Button组件</div>
+  <div>
   <Button theme="button">我是按钮</Button>
   <Button theme="link">我是按钮</Button>
   <Button theme="text">我是按钮</Button>
   <Button >我是按钮</Button>
+  </div>
+  <hr>
+  <div>
+    <Button size="small">我是按钮</Button>
+    <Button size="normal">我是按钮</Button>
+    <Button size="big" >我是按钮</Button>
+    <Button >我是按钮</Button>
+  </div>
+
 
 
 

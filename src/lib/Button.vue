@@ -1,15 +1,19 @@
 <template>
-<button class="gulu-button" :class="{[`theme-${theme}`]:theme}">
+<button class="gulu-button" :class="{[`gulu-theme-${theme}`]:theme,[`gulu-size-${size}`]:size}">
   <slot/>
 </button>
 </template>
 
 <script>
 export default {
-  props:{
-    theme:{
+  props: {
+    theme: {
       type: String,
-      default: 'button'
+      default: "button"
+    },
+    size: {
+      type: String,
+      default: "normal"
     }
   }
 }
@@ -41,24 +45,34 @@ export default {
       color: $blue;
       border-color: $blue;
     }
-    &::-moz-focus-inner{
-      border:0;
+    &::-moz-focus-inner {
+      border: 0;
     }
-    &.theme-link{
+    &.gulu-theme-link {
       border-color: transparent;
       box-shadow: none;
       color: $blue;
-      &:hover,&:focus{
-        color: lighten($blue,10%);
+      &:hover, &:focus {
+        color: lighten($blue, 10%);
       }
     }
-    &.theme-text{
+    &.gulu-theme-text {
       border-color: transparent;
       box-shadow: none;
       color: inherit;
-    &:hover,&:focus{
-      color: darken(white,5%);
+      &:hover, &:focus {
+        color: darken(white, 5%);
+      }
     }
+      &.gulu-size-big {
+        font-size: 24px;
+        height: 48px;
+        padding: 0 16px
+      }
+      &.gulu-size-small {
+        font-size: 12px;
+        height: 20px;
+        padding: 0 4px;
+      }
     }
-  }
 </style>
