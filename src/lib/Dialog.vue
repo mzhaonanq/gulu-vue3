@@ -3,9 +3,11 @@
   <div @click="onClickOverlay" class="gulu-dialog-overlay" ></div>
   <div class="gulu-dialog-wrapper">
     <div class="gulu-dialog">
-    <header>{{title}}<span class="gulu-dialog-close" @click="close"/></header>
+    <header>
+      <slot name="title"/>
+      <span class="gulu-dialog-close" @click="close"/></header>
     <main>
-    <slot/>
+    <slot name="content"/>
     </main>
     <footer>
     <Button level="main" @click="ok">OK</Button>
@@ -27,10 +29,6 @@ export default {
       type: Boolean,
       default:true
     },
-    title:{
-      type:String,
-      default:'提示'
-    }
   },
   setup(props,context){
     const close=()=>{
