@@ -3,7 +3,10 @@
    <div>Dialog示例</div>
     <h1>示例一</h1>
     <Button @click="toggle">触发Dialog</Button>
-    <Dialog :visible="x" @update:visible="x=$event" :ok="f1" :cancel="f2" :close-on-click-overlay="false"/>
+    <Dialog :visible="x" @update:visible="x=$event" :ok="f1" :cancel="f2" :close-on-click-overlay="false">
+      <div>内容一</div>
+      <div>内容二</div>
+    </Dialog>
   </div>
 </template>
 <script>
