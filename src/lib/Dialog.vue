@@ -1,24 +1,55 @@
 <template>
-  <div class="gulu-dialog-overlay"></div>
+  <template v-if="visible">
+  <div @click="onClickOverlay" class="gulu-dialog-overlay" ></div>
   <div class="gulu-dialog-wrapper">
     <div class="gulu-dialog">
-    <header>标题 <span class="gulu-dialog-close"></span></header>
+    <header>标题 <span class="gulu-dialog-close" @click="close"/></header>
     <main>
       <p>段落一</p>
       <p>段落二</p>
     </main>
     <footer>
-    <Button level="main">OK</Button>
-      <Button>Cancel</Button>
+    <Button level="main" @click="ok">OK</Button>
+      <Button @click="cancel">Cancel</Button>
     </footer>
     </div>
   </div>
+  </template>
 </template>
-
 <script>
 import Button from "./Button.vue";
 export default {
-  components:{Button}
+  components:{Button},
+  props:{
+    visible: Boolean,
+    ok:Function,
+    cancel:Function,
+    closeOnClickOverlay:{
+      type: Boolean,
+      default:true
+    }
+  },
+  setup(props,context){
+    const close=()=>{
+      context.emit('update:visible',false)
+    }
+    const onClickOverlay=()=>{
+      if(props.closeOnClickOverlay){
+        close()
+      }
+    }
+    const ok =()=>{
+      if(props.ok?.()!==false){
+        close()
+      }
+    }
+    const cancel =()=>{
+      if(props.cancel?.()!==false){
+        close()
+      }
+    }
+  return {close,onClickOverlay,ok,cancel}
+  }
 }
 </script>
 
