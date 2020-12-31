@@ -20,28 +20,25 @@
 </template>
 <script lang="ts">
 import Tab from './Tab.vue';
-import {onMounted,onUpdated, ref} from 'vue';
+import {ref, watchEffect,onMounted} from 'vue';
 
 export default {
   props: {
     selected: String
   },
   setup(props, context) {
-    const selectedItem = ref<HTMLDivElement>(null)
+    const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
     onMounted(() => {
-      const {width, left: selectedItemLeft} = selectedItem.value.getBoundingClientRect();
-      indicator.value.style.width = width + 'px';
-      const {left: containerLeft} = container.value.getBoundingClientRect();
-      indicator.value.style.left = (selectedItemLeft - containerLeft) + 'px';
+      watchEffect(() => {
+        const {width, left: navItemLeft} = selectedItem.value.getBoundingClientRect();
+        indicator.value.style.width = width + 'px';
+        const {left: containerLeft} = container.value.getBoundingClientRect();
+        indicator.value.style.left = (navItemLeft - containerLeft) + 'px';
+      });
     });
-    onUpdated(()=>{
-      const {width, left: navItemLeft} = selectedItem.value.getBoundingClientRect();
-      indicator.value.style.width = width + 'px';
-      const {left: containerLeft} = container.value.getBoundingClientRect();
-      indicator.value.style.left = (navItemLeft - containerLeft) + 'px';
-    });
+
     const defaults = context.slots.default();
     defaults.forEach(tag => {
       if (tag.type !== Tab) {
