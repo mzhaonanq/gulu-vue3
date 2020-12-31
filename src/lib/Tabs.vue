@@ -1,29 +1,42 @@
 <template>
   <div class="gulu-tabs">
     <div class="gulu-tabs-nav">
-    <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" :key="index" >{{t}}</div>
-  </div>
+      <div class="gulu-tabs-nav-item"
+           v-for="(t,index) in titles" :key="index"
+           :class="{'selected':t===selected}"
+           @click="()=>changeSelected(t)"
+      >{{ t }}
+      </div>
+    </div>
     <div class="gulu-tabs-content">
-      <component class="gulu-tabs-content-item" v-for="(c,index) in defaults" :is="c" :key="index" />
+      <component
+          class="gulu-tabs-content-item"
+          v-for="(c,index) in defaults" :is="c" :key="index"
+          :class="{'selected': c.props.title===selected}"/>
     </div>
   </div>
 </template>
 <script>
-import Tab from './Tab.vue'
-export default {
+import Tab from "./Tab.vue"
 
-  setup(props,context){
+export default {
+  props: {
+    selected: String
+  },
+  setup(props, context) {
     const defaults = context.slots.default()
-    defaults.forEach(tag=>{
-      if(tag.type!==Tab){
+    defaults.forEach(tag => {
+      if (tag.type !== Tab) {
         throw new Error(" Tabs的子元素必须是Tab组件")
       }
     })
-    const titles =defaults.map(tag=>{
+    const titles = defaults.map(tag => {
       return tag.props.title
     })
-    return {defaults,titles}
-
+    const changeSelected = (newValue) => {
+      context.emit("update:selected", newValue)
+    }
+    return {defaults, titles, changeSelected}
   }
 }
 </script>
@@ -50,6 +63,12 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
+    &-item{
+    display: none;
+    &.selected{
+      display: block;
+    }
+    }
   }
 }
 </style>
