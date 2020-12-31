@@ -1,8 +1,8 @@
 <template>
   <div>Tabs组件展示</div>
   <Tabs>
-    <Tab>Tab组件1</Tab>
-    <Tab>Tab组件2</Tab>
+    <Tab title="导航一">Tab组件1</Tab>
+    <Tab title="导航二">Tab组件2</Tab>
   </Tabs>
 </template>
 <script>
