@@ -5,7 +5,7 @@
            v-for="(t,index) in titles" :key="index"
            :class="{'selected':t===selected}"
            @click="()=>changeSelected(t)"
-           :ref="el => { if (el) divs[index] = el }"
+           :ref="el => { if (t===selected) selectedItem = el }"
       >{{ t }}
       </div>
       <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
@@ -27,21 +27,17 @@ export default {
     selected: String
   },
   setup(props, context) {
-    const divs = ref<HTMLDivElement[]>([]);
+    const selectedItem = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
     onMounted(() => {
-      const navItems = divs.value;
-      const result = navItems.filter(navItem => navItem.classList.contains('selected'))[0];
-      const {width, left: navItemLeft} = result.getBoundingClientRect();
+      const {width, left: selectedItemLeft} = selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
       const {left: containerLeft} = container.value.getBoundingClientRect();
-      indicator.value.style.left = (navItemLeft - containerLeft) + 'px';
+      indicator.value.style.left = (selectedItemLeft - containerLeft) + 'px';
     });
     onUpdated(()=>{
-      const navItems = divs.value;
-      const result = navItems.filter(navItem => navItem.classList.contains('selected'))[0];
-      const {width, left: navItemLeft} = result.getBoundingClientRect();
+      const {width, left: navItemLeft} = selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
       const {left: containerLeft} = container.value.getBoundingClientRect();
       indicator.value.style.left = (navItemLeft - containerLeft) + 'px';
@@ -58,7 +54,7 @@ export default {
     const changeSelected = (newValue) => {
       context.emit("update:selected", newValue)
     }
-    return {defaults, titles, divs, indicator, container, changeSelected};
+    return {defaults, titles, selectedItem, indicator, container, changeSelected};
   }
 }
 </script>
