@@ -10,6 +10,17 @@
       </p>
     </div>
   </div>
+  <div class="features">
+  <svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-vue"></use>
+  </svg>
+  <svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-ts"></use>
+  </svg>
+  <svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-light"></use>
+  </svg>
+  </div>
 </template>
 
 <script lang="ts">
@@ -41,6 +52,12 @@ export default {
       padding: 8px 24px;
       border-radius: 4px;
     }
+  }
+}
+.features{
+  > .icon{
+    height: 64px;
+    width: 64px;
   }
 }
 </style>
