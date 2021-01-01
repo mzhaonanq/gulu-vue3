@@ -74,6 +74,10 @@ export default {
     > .icon{
       height: 24px;
       width: 24px;
+      transition: all linear 250ms;
+      &:hover{
+        transform: rotate(90deg);
+      }
     }
   }
   @media (max-width: 500px) {
