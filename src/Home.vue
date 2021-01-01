@@ -30,17 +30,16 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color:#007974;
   > .actions{
     padding:8px 0;
     a{
       margin: 0 8px;
-      background: white;
+      background: #02bcb0;
+      color: #ffffff;
       display: inline-block;
-      $h:28px;
-      height: $h;
-      line-height: $h;
-      border-radius: $h/2;
-      padding: 0 8px;
+      padding: 8px 24px;
+      border-radius: 4px;
     }
   }
 }

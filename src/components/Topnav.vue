@@ -33,6 +33,7 @@ export default {
   width: 100%;
   top: 0;
   left:0;
+  color:#007974;
   z-index: 10;
   > .logo {
     margin-right: auto;
