@@ -1,6 +1,6 @@
 <template>
   <div>Tabs组件展示</div>
-  <Tabs v-model:selected="x">
+  <Tabs v-model:selected="selectedValue">
     <Tab title="导航一">Tab组件1</Tab>
     <Tab title="导航二">Tab组件2</Tab>
   </Tabs>
@@ -14,8 +14,8 @@ export default {
     Tabs,Tab
   },
   setup(){
-    const x = ref("导航一")
-    return {x}
+    const selectedValue = ref("导航一")
+    return {selectedValue}
   }
 }
 </script>

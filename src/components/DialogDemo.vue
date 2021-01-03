@@ -4,7 +4,7 @@
     <h1>示例一</h1>
     <Button @click="toggle">点击显示Dialog</Button>
     <!--:visible="x" @update:visible="x=$event" 这两句可以简写成  v-model:visible="x"  -->
-    <Dialog v-model:visible="x" :ok="f1" :cancel="f2" :close-on-click-overlay="false">
+    <Dialog v-model:visible="visibleValue" :ok="f1" :cancel="f2" :close-on-click-overlay="false">
       <template v-slot:title>
         <strong>加粗标题</strong>
       </template>
@@ -26,22 +26,22 @@ import {dynamicCreate} from "../lib/dynamicCreate";
 export default {
   components: {Dialog, Button},
   setup() {
-    const x = ref(false)
+    const visibleValue = ref(false)
     const toggle = () => {
-      x.value = !x.value
+      visibleValue.value = !visibleValue.value
     }
     const f1 = () => {}
     const f2 = () => {}
     const toggle2 = () => {
       dynamicCreate({
-        title:'标题3333',
-        content:'内容111',
-        ok(){console.log("ok");},
-        cancel(){console.log("cancel");},
-        closeOnClickOverlay: false,
+        title: "标题3333",
+        content: "内容111",
+        ok() {console.log("ok")},//ok:function(){console.log("ok")}的简写
+        cancel() {console.log("cancel");},
+        closeOnClickOverlay: false
       })
     }
-    return {x, toggle, f1, f2, toggle2}
+    return {visibleValue, toggle, f1, f2, toggle2}
   }
 }
 </script>
