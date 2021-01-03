@@ -10,7 +10,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:checked-show="value1" /&gt;</pre>
+        <pre>{{SwitchCode1.__sourceCode}}</pre>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
       <Button>查看代码</Button>
     </div>
     <div class="demo-code">
-      <pre>&lt;Switch v-model:checked-show="value1" disabled /&gt;</pre>
+      <pre>{{SwitchCode2.__sourceCode}}</pre>
     </div>
   </div>
   </div>
@@ -32,6 +32,8 @@
 <script lang="ts">
 import Switch from '../lib/Switch.vue';
 import Button from '../lib/Button.vue';
+import SwitchCode1  from './SwitchCode1.vue';
+import SwitchCode2 from './SwitchCode2.vue';
 import {ref} from 'vue';
 
 export default {
@@ -41,7 +43,7 @@ export default {
     const value1 = ref(false);
     const value2 = ref(false);
 
-    return {value1,value2};
+    return {value1,value2,SwitchCode1,SwitchCode2};
   }
 };
 </script>

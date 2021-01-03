@@ -1,3 +1,6 @@
+<demo>
+常规用法
+</demo>
 <template>
   <Switch v-model:checked-show="value1" />
 </template>

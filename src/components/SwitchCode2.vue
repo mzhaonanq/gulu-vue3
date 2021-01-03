@@ -1,3 +1,6 @@
+<demo>
+支持 disabled
+</demo>
 <template>
   <Switch v-model:checked-show="value2" disabled />
 </template>
