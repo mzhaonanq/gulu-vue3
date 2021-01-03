@@ -48,7 +48,7 @@ export default {
   top: 0;
   left:0;
   color:#007974;
-  z-index: 10;
+  z-index: 20;
   > .logo {
     margin-right: auto;
     max-width: 6em;
