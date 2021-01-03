@@ -31,7 +31,7 @@
           </li>
         </ol>
       </aside>
-      <main>
+      <main @touchstart="toggleAsideVisible">
         <router-view/>
       </main>
     </div>
@@ -46,7 +46,10 @@ export default {
   components: {Topnav},
   setup(){
     const asideVisible = inject<Ref<boolean>>("asideVisible")
-    return {asideVisible}
+    const toggleAsideVisible = () => {
+      asideVisible.value = false;
+    };
+    return {asideVisible,toggleAsideVisible}
   }
 };
 </script>
