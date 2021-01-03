@@ -1,21 +1,16 @@
 <template>
-  <div>Tabs组件展示</div>
-  <Tabs v-model:selected="selectedValue">
-    <Tab title="导航一">Tab组件1</Tab>
-    <Tab title="导航二">Tab组件2</Tab>
-  </Tabs>
+  <h2>Tabs组件展示</h2>
+  <Demo :component="TabCode"/>
 </template>
 <script>
-import Tabs from '../lib/Tabs.vue'
-import Tab from '../lib/Tab.vue'
-import {ref} from "vue";
+import Demo from "../code/Demo.vue";
+import TabCode from "../code/TabCode.vue";
 export default {
   components:{
-    Tabs,Tab
+    Demo,
   },
   setup(){
-    const selectedValue = ref("导航一")
-    return {selectedValue}
+    return {TabCode}
   }
 }
 </script>
