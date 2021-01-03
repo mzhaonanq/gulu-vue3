@@ -1,26 +1,28 @@
 <template>
-  <h1>Switch组件展示</h1>
-  <Demo :component="SwitchCode1"/>
-  <Demo :component="SwitchCode2"/>
+<div>
+<div class="demo">
+  <h2>{{component.__sourceCodeTitle}}</h2>
+  <div class="demo-component">
+    <component :is="component"/>
+  </div>
+  <div class="demo-actions">
+    <Button>查看代码</Button>
+  </div>
+  <div class="demo-code">
+    <pre>{{component.__sourceCode}}</pre>
+  </div>
+</div>
+</div>
 </template>
 <script lang="ts">
-import Switch from '../lib/Switch.vue';
 import Button from '../lib/Button.vue';
-import SwitchCode1 from './SwitchCode1.vue';
-import SwitchCode2 from './SwitchCode2.vue';
-import {ref} from 'vue';
-import Demo from './Demo.vue';
 
 export default {
-  name: 'SwitchDemo',
-  components: {Demo, Switch, Button},
-  setup() {
-    const value1 = ref(false);
-    const value2 = ref(false);
-
-    return {value1,value2,SwitchCode1,SwitchCode2};
-  }
-};
+  props:{
+    component:Object
+  },
+  components:{ Button}
+}
 </script>
 <style lang="scss" scoped>
 
