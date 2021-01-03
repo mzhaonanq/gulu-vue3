@@ -4,7 +4,7 @@
     <div class="demo">
       <h2>常规用法</h2>
       <div class="demo-component">
-        <Switch v-model:checked-show="value1" />
+        <component :is="SwitchCode1"/>
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -18,7 +18,7 @@
   <div class="demo">
     <h2>支持 disabled </h2>
     <div class="demo-component">
-      <Switch v-model:checked-show="value2" disabled/>
+      <component :is="SwitchCode2"/>
     </div>
     <div class="demo-actions">
       <Button>查看代码</Button>
@@ -32,7 +32,7 @@
 <script lang="ts">
 import Switch from '../lib/Switch.vue';
 import Button from '../lib/Button.vue';
-import SwitchCode1  from './SwitchCode1.vue';
+import SwitchCode1 from './SwitchCode1.vue';
 import SwitchCode2 from './SwitchCode2.vue';
 import {ref} from 'vue';
 
