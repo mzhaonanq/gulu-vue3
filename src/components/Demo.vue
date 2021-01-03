@@ -6,9 +6,9 @@
     <component :is="component"/>
   </div>
   <div class="demo-actions">
-    <Button>查看代码</Button>
+    <Button @click="toggleCodeVisible">查看代码</Button>
   </div>
-  <div class="demo-code">
+  <div v-if="codeVisible" class="demo-code">
     <pre>{{component.__sourceCode}}</pre>
   </div>
 </div>
@@ -16,12 +16,20 @@
 </template>
 <script lang="ts">
 import Button from '../lib/Button.vue';
+import {ref} from 'vue';
 
 export default {
   props:{
     component:Object
   },
-  components:{ Button}
+  components:{ Button},
+  setup(){
+    const codeVisible = ref(false)
+    const toggleCodeVisible = ()=>{
+      codeVisible.value=!codeVisible.value
+    }
+    return{codeVisible,toggleCodeVisible}
+  }
 }
 </script>
 <style lang="scss" scoped>
