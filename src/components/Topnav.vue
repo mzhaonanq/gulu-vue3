@@ -5,10 +5,6 @@
         <use xlink:href="#icon-circle"></use>
       </svg>
     </router-link>
-    <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
-    </ul>
     <span v-if="toggleAsideButtonVisible" class="toggleAside" @click="toggleAsideVisible">
           <svg class="icon">
         <use xlink:href="#icon-open"></use>
@@ -57,14 +53,6 @@ export default {
       width: 32px;
     }
   }
-  > .menu {
-    display: flex;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    > li {
-      margin: 0 1em;
-    }
-  }
   > .toggleAside{
     display: none;
     position: absolute;
@@ -82,7 +70,6 @@ export default {
   }
   @media (max-width: 500px) {
     > .logo {margin: 0 auto;}
-    > .menu {display: none;}
     > .toggleAside{display: inline-block;}
   }
 }
