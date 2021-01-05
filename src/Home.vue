@@ -73,15 +73,10 @@ export default {
 .features{
   margin:64px auto;
   width: 100%;
-  @media(min-width:800px){
-    width:66.6667% ;
-  }
-  @media(min-width:1200px){
-    width:33.3333% ;
-  }
   > ul{
     display: flex;
     flex-wrap: wrap;
+    margin-left: 20px;
     > li{
       width: 400px;
       margin: 16px 0;
