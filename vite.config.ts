@@ -1,15 +1,17 @@
-import * as fs from 'fs'
-import {baseParse} from '@vue/compiler-core'
+import * as fs from 'fs';
+import {baseParse} from '@vue/compiler-core';
+
 export default {
+  base: './',
   vueCustomBlockTransforms: {
     demo: (options) => {
-      const { code, path } = options
-      const file = fs.readFileSync(path).toString()
+      const {code, path} = options;
+      const file = fs.readFileSync(path).toString();
       // @ts-ignore
-      const parsed = baseParse(file).children.find(n => n.tag === 'demo')
+      const parsed = baseParse(file).children.find(n => n.tag === 'demo');
       // @ts-ignore
-      const title = parsed.children[0].content
-      const main = file.split(parsed.loc.source).join('').trim()
+      const title = parsed.children[0].content;
+      const main = file.split(parsed.loc.source).join('').trim();
       return `export default function (Component) {
         Component.__sourceCode = ${
         JSON.stringify(main)
