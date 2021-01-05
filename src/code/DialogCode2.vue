@@ -6,14 +6,14 @@
 </template>
 
 <script>
-import {dynamicCreate} from "../lib/dynamicCreate";
 import Button from "../lib/Button.vue";
+import {openDialog} from "../lib";
 
 export default {
   components: {Button},
   setup() {
     const toggle2 = () => {
-      dynamicCreate({
+      openDialog({
         title: "新标题",
         content: "新内容",
         ok() {console.log("ok")},
