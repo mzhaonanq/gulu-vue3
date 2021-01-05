@@ -19,7 +19,7 @@
     </Teleport>
   </template>
 </template>
-<script>
+<script lang="ts">
 import Button from "./Button.vue";
 export default {
   components:{Button},

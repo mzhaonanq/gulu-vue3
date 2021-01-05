@@ -1,29 +1,32 @@
-import {createApp, h} from 'vue';
-import Dialog from './Dialog.vue';
-
-const dynamicCreate = (options) => {
-  const {title,content,ok,cancel,closeOnClickOverlay}=options
-  const div = document.createElement('div');
+import Dialog from "./Dialog.vue";
+import { createApp, h } from "vue";
+export const dynamicCreate = (options) => {
+  const { title, content, ok, cancel } = options;
+  const div = document.createElement("div");
   document.body.appendChild(div);
   const close = () => {
-    dialog.unmount(div);
+    app.unmount(div);
     div.remove();
   };
-  const dialog = createApp({
+  const app = createApp({
     render() {
-      return h(Dialog,
+      return h(
+        Dialog,
         {
           visible: true,
-          'onUpdate:visible': (newValue) => {
-            if (newValue === false) {
+          "onUpdate:visible": (newVisible) => {
+            if (newVisible === false) {
               close();
             }
           },
-          ok,cancel,closeOnClickOverlay
+          ok, cancel
         },
-        {title, content});
-    }
+        {
+          title,
+          content,
+        }
+      );
+    },
   });
-  dialog.mount(div);
+  app.mount(div);
 };
-export {dynamicCreate};
