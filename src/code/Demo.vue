@@ -6,7 +6,9 @@
     <component :is="component"/>
   </div>
   <div class="demo-actions">
-    <Button @click="toggleCodeVisible">查看代码</Button>
+    <Button @click="hideCode" v-if="codeVisible">隐藏代码</Button>
+    <Button @click="showCode" v-else>查看代码</Button>
+
   </div>
   <div v-if="codeVisible" class="demo-code">
     <pre>{{component.__sourceCode}}</pre>
@@ -25,10 +27,13 @@ export default {
   components:{ Button},
   setup(){
     const codeVisible = ref(false)
-    const toggleCodeVisible = ()=>{
-      codeVisible.value=!codeVisible.value
+    const hideCode = ()=>{
+      codeVisible.value=false
     }
-    return{codeVisible,toggleCodeVisible}
+    const showCode=()=>{
+      codeVisible.value=true
+    }
+    return{codeVisible,hideCode,showCode}
   }
 }
 </script>
